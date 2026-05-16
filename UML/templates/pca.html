@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="pca-section">
+    <h2>🍴 PCA Clustering with DBSCAN</h2>
+    <div id="controls">
+        <label for="eps">EPS:</label>
+        <input type="number" id="eps" step="0.05" value="0.35" min="0.05" max="2">
+        <label for="min_samples">Min Samples:</label>
+        <input type="number" id="min_samples" value="5" min="1" max="50">
+        <button id="recluster-btn">Recluster</button>
+        <button id="download-btn">Download CSV</button>
+    </div>
+    <div id="summary"></div>
+    <div id="pca-plot"></div>
+</div>
+{% endblock %}

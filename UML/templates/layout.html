@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Food Clustering App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('pca_page') }}" class="{% if request.path == '/pca' or request.path=='/' %}active{% endif %}">PCA Clustering</a></li>
+                <li><a href="{{ url_for('scatter_page') }}" class="{% if request.path == '/scatter' %}active{% endif %}">Calories vs Protein</a></li>
+                <li><a href="{{ url_for('kmeans_predict_original_page') }}" class="{% if request.path == '/kmeans_predict_original' %}active{% endif %}">K-Means (Original)</a></li>
+                <li><a href="{{ url_for('kmeans_predict_clean_page') }}" class="{% if request.path == '/kmeans_predict_clean' %}active{% endif %}">K-Means (Cleaned)</a></li>
+                <li><button id="toggle-theme">🌙 Toggle Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='plot.js') }}"></script>
+</body>
+</html>

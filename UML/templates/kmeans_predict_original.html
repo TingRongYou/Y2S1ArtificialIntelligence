@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="kmeans-section">
+
+    <h2>🍴 K-Means Prediction — Original Dataset</h2>
+
+    <p>Enter nutrient values:</p>
+
+    <div id="kmeans-inputs">
+        <div class="input-group">
+            <label for="Calories">Calories:</label>
+            <input type="number" id="Calories" min="0" max="1000" value="0" step="1">
+        </div>
+        <div class="input-group">
+            <label for="Protein">Protein:</label>
+            <input type="number" id="Protein" min="0" max="100" value="0" step="1">
+        </div>
+        <div class="input-group">
+            <label for="Fat">Fat:</label>
+            <input type="number" id="Fat" min="0" max="100" value="0" step="1">
+        </div>
+        <div class="input-group">
+            <label for="Fiber">Fiber:</label>
+            <input type="number" id="Fiber" min="0" max="30" value="0" step="0.1">
+        </div>
+        <div class="input-group">
+            <label for="Carbs">Carbs:</label>
+            <input type="number" id="Carbs" min="0" max="200" value="0" step="1">
+        </div>
+    </div>
+
+    <button id="predict-btn">Predict Cluster</button>
+
+    <div id="message" class="message"></div>
+    <div id="result" class="result"></div>
+    <div id="input-display"></div>
+
+    <p>Past Predictions:</p>
+    <select id="history-dropdown">
+        <option value="">-- Select past prediction --</option>
+    </select>
+</div>
+
+<!-- Dashboard Section -->
+<div id="dashboard" class="dashboard-container" style="display:none;">
+    <h3>📊 Cluster Dashboard</h3>
+    <div id="cluster-summary"></div>
+    <div class="chart-row">
+        <div class="chart-box" id="radar-chart"></div>
+        <div class="chart-box" id="bar-chart"></div>
+    </div>
+    <div class="chart-row">
+        <div class="chart-box" id="pie-chart"></div>
+        <div class="chart-box" id="box-chart"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='kmeans_predict.js') }}"></script>
+
+{% endblock %}
